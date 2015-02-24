@@ -25,8 +25,10 @@ while True:
 	key = cv.WaitKey(10)
 
 	if (key == 27):
+		print "Quitting"
 		break
 	elif (key == 114):
+		print "Updating image"
 		update_image()
 
 
