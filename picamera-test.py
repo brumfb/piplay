@@ -8,6 +8,7 @@ import numpy as np
 
 camera = picamera.PiCamera()
 camera.resolution=(640,480)
+camera.vflip = True
 
 cv.NamedWindow("camera", 1)
 
