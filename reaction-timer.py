@@ -4,11 +4,12 @@ import random
 import RPi.GPIO as GPIO
 
 led = 15  
-button = 12
+button = 10
 
+GPIO.cleanup()
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(led, GPIO.OUT, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(button,GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(button,GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
 def	TimeReaction():
@@ -16,7 +17,8 @@ def	TimeReaction():
 	pressed = False
 
 	while (pressed == False):
-		pressed = GPIO.input(button)
+		if GPIO.input(button) == 0:
+			pressed = True
 	
 	stop = time.time()
 	
